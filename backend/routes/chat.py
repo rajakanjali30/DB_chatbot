@@ -9,6 +9,5 @@ async def chat(request: ChatRequest):
     if not request.message:
         raise HTTPException(status_code=400, detail="Message cannot be empty")
     
-    # ✅ Move business logic to a separate service
     bot_reply = generate_bot_reply(request.message)
     return {"reply": bot_reply}

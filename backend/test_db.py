@@ -4,8 +4,8 @@ def test_db_connection():
     try:
         conn = mysql.connector.connect(
             host="localhost",
-            user="root",  # Replace with your MySQL username
-            password="Sagar@1234",  # Replace with your MySQL password
+            user="username",  
+            password="example@1234",
             database="DBChatbot_db"
         )
         if conn.is_connected():

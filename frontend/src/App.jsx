@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { TextField, Button, Container, Box, Typography } from "@mui/material";
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:5000";  // ✅ Correct API URL
+const API_URL = "http://127.0.0.1:5000";  
 
 const App = () => {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [isBackendConnected, setIsBackendConnected] = useState(false);
 
-  // ✅ Check if backend is running
   useEffect(() => {
     axios
       .get(`${API_URL}/health`)
@@ -22,7 +21,7 @@ const handleSendMessage = async () => {
 
   try {
     const response = await axios.post(`${API_URL}/chat`, 
-      { message },  // ✅ Send message in correct JSON format
+      { message },
       { headers: { "Content-Type": "application/json" } }
     );
 
@@ -49,7 +48,7 @@ const handleSendMessage = async () => {
             : "❌ Backend Not Reachable"}
         </Typography>
 
-        {/* ✅ Chat Display Box */}
+        
         <Box
           sx={{
             flexGrow: 1,
@@ -84,7 +83,7 @@ const handleSendMessage = async () => {
           ))}
         </Box>
 
-        {/* ✅ Input and Send Button */}
+        
         <Box sx={{ display: "flex" }}>
           <TextField
             label="Type a message"
